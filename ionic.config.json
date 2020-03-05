@@ -1,0 +1,7 @@
+{
+  "name": "SocialHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
