@@ -10,12 +10,53 @@
   height: 100%;
 }
 
+//Imagen de fondo
+
+.bg-img{
+  --background: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) ), url('../../assets/images/login-background.jpg') no-repeat cover fixed center;
+  background: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) ), url('../../assets/images/login-background.jpg') no-repeat fixed center;
+  -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+//Estilos del logo
+
 .logo-text{
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   color: #fff;
-  margin-bottom: 40px;
+  margin-bottom: 65px;
+}
+
+.logo{
+  width: 20%;
+}
+
+//Estilos de los botones
+
+#facebook-btn{
+  --color: #fff;
+  --background: #4267B2;
+  text-transform:none!important;
+  font-family: 'Poppins', sans-serif;
+}
+
+#ig-btn{
+  --background: #f09433; 
+  --background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  --background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  --background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  text-transform:none!important;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-text{
+  padding-left: 20px;
+  text-align: left;
+  font-weight: 600;
 }
 
 .outer {
@@ -37,62 +78,3 @@
   margin-right: auto;
 }
 
-
-.bg-img{
-  --background: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) ), url('../../assets/images/login-background.jpg') no-repeat cover fixed center;
-  background: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) ), url('../../assets/images/login-background.jpg') no-repeat fixed center;
-  -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
-
-#facebook-btn{
-  --color: #fff;
-  --background: #4267B2;
-  text-transform:none!important;
-  font-family: 'Poppins', sans-serif;
-}
-
-#facebook-btn:hover{
-  opacity: 0.9;
-}
-
-.logo{
-  width: 20%;
-}
-
-.btn-text{
-  padding-left: 16px;
-}
-
-#ig-btn{
-  --background: #f09433; 
-  --background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-  --background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-  --background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-  text-transform:none!important;
-  font-family: 'Poppins', sans-serif;
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-ion-content ion-toolbar {
-  --background: translucent;
-}

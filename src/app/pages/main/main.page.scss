@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+#toolbar{
+    color: #4267B2;
+    padding: 10px;
+}
+
+#nav-title{
+    text-align: center;
+    font-size: 32px;
+}
+
+#add-image{
+    width: 75%;
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+}
+
+#text-input{
+    display: block;
+    margin: auto;
+    margin-top: 25px;
+}
+
+#post-button{
+    margin-top: 40px;
+    --background: #4267B2;
+}
+
