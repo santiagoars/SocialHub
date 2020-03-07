@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-header id="header">
+    <ion-toolbar id="toolbar">
+      <ion-title id="nav-title">Instagram</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img (click)="selectImage()" id="add-image" src="../../assets/images/cuadro.png" alt="addImage">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col><ion-item>
+          <ion-textarea id="text-input" rows="4" placeholder="What's on your mind?" autosize></ion-textarea>
+        </ion-item></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button ion-item (click)="selectImage()" id="post-button" expand="block" shape="round">
+          Post
+        </ion-button>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+</ion-content>

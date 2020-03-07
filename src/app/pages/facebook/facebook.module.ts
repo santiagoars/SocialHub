@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MainPageRoutingModule } from './main-routing.module';
+import { FacebookPageRoutingModule } from './facebook-routing.module';
 
-import { MainPage } from './main.page';
+import { FacebookPage } from './facebook.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MainPageRoutingModule
+    FacebookPageRoutingModule
   ],
-  declarations: [MainPage]
+  declarations: [FacebookPage]
 })
-export class MainPageModule {}
+export class FacebookPageModule {}

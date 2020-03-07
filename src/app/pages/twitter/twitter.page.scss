@@ -7,7 +7,8 @@
 
 
 #toolbar{
-    color: #4267B2;
+    --background: #1A91DA;
+    color: #fff;
     padding: 10px;
 }
 
@@ -17,7 +18,7 @@
 }
 
 #add-image{
-    width: 75%;
+    width: 65%;
     display: block;
     margin: auto;
     margin-top: 15px;
@@ -30,7 +31,5 @@
 }
 
 #post-button{
-    margin-top: 40px;
-    --background: #4267B2;
+    --background: #1A91DA;
 }
-
