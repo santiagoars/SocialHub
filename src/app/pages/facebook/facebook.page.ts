@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
+import {SocialSharing} from '@ionic-native/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-facebook',
@@ -10,8 +12,10 @@ import {File} from '@ionic-native/file/ngx';
 })
 export class FacebookPage implements OnInit {
 
-  croppedImagepath = "";
-  isLoading = false;
+  image: any;
+  display: any;
+  message: string;
+
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -21,34 +25,38 @@ export class FacebookPage implements OnInit {
   constructor(
     private camera: Camera,
     public actionSheetController: ActionSheetController,
-    private file: File) { }
+    private file: File,
+    private socialSharing: SocialSharing) { }
 
   ngOnInit() {
+  }
+
+  postToFacebook(){
+    this.socialSharing.shareViaFacebookWithPasteMessageHint(this.message, null, null).then(() => {
+
+    })
+    .catch(e => {
+
+    })
   }
 
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
-      sourceType: sourceType,
       destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      saveToPhotoAlbum: false,
+      correctOrientation: true,
+      sourceType: sourceType
     }
     this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      // If it's base64 (DATA_URL):
-      // let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.image = imageData;
+      this.display = (<any>window).Ionic.WebView.convertFileSrc(imageData);
     }, (err) => {
       // Handle error
     });
   }
 
-  test(){
-    console.log("Clicked!")
-  }
-
   async selectImage() {
-    console.log("Se corrio0")
     const actionSheet = await this.actionSheetController.create({
       header: "Select Image source",
       buttons: [{
