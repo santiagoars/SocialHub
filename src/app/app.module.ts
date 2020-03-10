@@ -12,7 +12,9 @@ import {Facebook} from '@ionic-native/facebook/ngx';
 import { Camera } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import {NativePageTransitions} from '@ionic-native/native-page-transitions/ngx';
-import {SocialSharing } from '@ionic-native/social-sharing/ngx'
+import {SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Instagram } from '@ionic-native/instagram/ngx';
+import {Base64} from '@ionic-native/base64/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +24,10 @@ import {SocialSharing } from '@ionic-native/social-sharing/ngx'
     StatusBar,
     SplashScreen,
     Facebook,
+    Instagram,
     Camera,
     File,
+    Base64,
     SocialSharing,
     NativePageTransitions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
