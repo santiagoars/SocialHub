@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Facebook, FacebookLoginResponse} from '@ionic-native/facebook/ngx';
 import {Router} from '@angular/router';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { NavController } from '@ionic/angular';
@@ -13,7 +12,6 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
 
   constructor(
-              private fb: Facebook,
               private router: Router,
               private nativePageTransitions: NativePageTransitions,
               public navCtrl: NavController) {
