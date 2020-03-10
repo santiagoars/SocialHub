@@ -1,7 +1,7 @@
 <ion-content>
   <ion-header id="header">
     <ion-toolbar id="toolbar">
-      <ion-title id="nav-title">Instagram</ion-title>
+      <ion-title id="nav-title">SocialHub</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -9,15 +9,17 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <img class="add-image" *ngIf="display; else cuadro" [src]="display">
+          <div id="image-fit">
+          <img class="add-image" *ngIf="display; else cuadro" [src]="display" (click)="selectImage()">
           <ng-template #cuadro>
             <img class="add-image" src="../../assets/images/cuadro.png" alt="add" (click)="selectImage()">
           </ng-template>
+        </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col><ion-item>
-          <ion-textarea [(ngModel)]="message" id="text-input" rows="8" placeholder="What's on your mind?" autosize></ion-textarea>
+          <ion-textarea [(ngModel)]="message" id="text-input" rows="4" placeholder="Caption this..." autosize></ion-textarea>
         </ion-item></ion-col>
       </ion-row>
       <ion-row>

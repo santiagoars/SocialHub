@@ -50,12 +50,14 @@ export class TwitterPage implements OnInit {
       header: "Select Image source",
       buttons: [{
         text: 'Load from Library',
+        icon: 'images-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
       },
       {
         text: 'Use Camera',
+        icon: 'camera-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.CAMERA);
         }

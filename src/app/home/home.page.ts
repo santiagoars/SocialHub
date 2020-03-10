@@ -20,14 +20,9 @@ export class HomePage {
 
   }
 
-  loginWithFB(){
-    this.fb.login(['email', 'public_profile', 'user_friends'])
-    .then((res: FacebookLoginResponse) => console.log('Logged into Facebook!', res))
-    .then(data => {
-      this.router.navigate(["/main"]);
-      this.slidePage();
-    })
-    .catch(e => console.log('Error logging into Facebook', e));
+  goToApp(){
+    this.router.navigate(["/tabs"]);
+    this.slidePage();
   }
 
   slidePage(){

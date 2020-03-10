@@ -4,7 +4,6 @@ import { ActionSheetController } from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
-import {Base64} from '@ionic-native/base64/ngx';
 
 @Component({
   selector: 'app-instagram',
@@ -14,16 +13,13 @@ import {Base64} from '@ionic-native/base64/ngx';
 export class InstagramPage {
 
   message: string;
-  image: any;
   display: any;
-  igImage: any;
 
   constructor(private socialSharing: SocialSharing,
                       private camera: Camera,
                       public actionSheetController: ActionSheetController,
                       private file: File,
-                      private ig: Instagram,
-                      private base64: Base64) { }
+                      private ig: Instagram) { }
 
   publishToInstagram(){
     this.ig.share(this.display, this.message)
@@ -53,12 +49,14 @@ export class InstagramPage {
       header: "Select Image source",
       buttons: [{
         text: 'Load from Library',
+        icon: 'images-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
       },
       {
         text: 'Use Camera',
+        icon: 'camera-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.CAMERA);
         }

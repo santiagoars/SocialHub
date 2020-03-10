@@ -32,7 +32,7 @@ export class FacebookPage implements OnInit {
   }
 
   postToFacebook(){
-    this.socialSharing.shareViaFacebookWithPasteMessageHint(this.message, null, null).then(() => {
+    this.socialSharing.shareViaFacebookWithPasteMessageHint(this.message, this.image, null).then(() => {
 
     })
     .catch(e => {
@@ -61,12 +61,14 @@ export class FacebookPage implements OnInit {
       header: "Select Image source",
       buttons: [{
         text: 'Load from Library',
+        icon: 'images-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
         }
       },
       {
         text: 'Use Camera',
+        icon: 'camera-outline',
         handler: () => {
           this.pickImage(this.camera.PictureSourceType.CAMERA);
         }
