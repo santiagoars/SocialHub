@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
-import {File} from '@ionic-native/file/ngx';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -23,8 +23,8 @@ export class FacebookPage implements OnInit {
 
   constructor(
     private camera: Camera,
+    private toastController: ToastController,
     public actionSheetController: ActionSheetController,
-    private file: File,
     private socialSharing: SocialSharing) { }
 
   ngOnInit() {
@@ -35,8 +35,16 @@ export class FacebookPage implements OnInit {
 
     })
     .catch(e => {
-
+      this.errorToast("Please download Facebook first and login")
     })
+  }
+
+  async errorToast(error) {
+    const toast = await this.toastController.create({
+      message: error,
+      duration: 2000
+    });
+    toast.present();
   }
 
   pickImage(sourceType) {
@@ -50,7 +58,7 @@ export class FacebookPage implements OnInit {
     this.camera.getPicture(options).then((imageData) => {
       this.display = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
-      // Handle error
+      this.errorToast("Could not fetch image")
     });
   }
 

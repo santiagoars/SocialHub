@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
-import {File} from '@ionic-native/file/ngx';
-import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-instagram',
@@ -15,16 +14,29 @@ export class InstagramPage {
   message: string;
   display: any;
 
-  constructor(private socialSharing: SocialSharing,
-                      private camera: Camera,
+  constructor(        private camera: Camera,
                       public actionSheetController: ActionSheetController,
-                      private file: File,
-                      private ig: Instagram) { }
+                      private ig: Instagram,
+                      private toastController: ToastController) { }
 
   publishToInstagram(){
     this.ig.share(this.display, this.message)
    .then(() => console.log('Shared!'))
-   .catch((error: any) => console.error(error));
+   .catch((error: any) => {
+     if(this.display === null){
+       this.errorToast("Upload an image first!");
+     }else{
+      this.errorToast(error);
+     }
+   });
+  }
+
+  async errorToast(error) {
+    const toast = await this.toastController.create({
+      message: error,
+      duration: 2000
+    });
+    toast.present();
   }
 
   pickImage(sourceType) {
@@ -40,7 +52,7 @@ export class InstagramPage {
       this.display = 'data:image/jpeg;base64,' + imageData;
     }
     , (err) => {
-      // Handle error
+      this.errorToast("Could not fetch image")
     });
   }
 

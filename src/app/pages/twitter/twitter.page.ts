@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
-import {File} from '@ionic-native/file/ngx';
 import {SocialSharing} from '@ionic-native/social-sharing/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-twitter',
@@ -17,7 +17,8 @@ export class TwitterPage implements OnInit {
   constructor(private socialSharing: SocialSharing,
               private camera: Camera,
               public actionSheetController: ActionSheetController,
-              private file: File) { }
+              private toastController: ToastController
+              ) { }
 
   ngOnInit() {
   }
@@ -26,6 +27,17 @@ export class TwitterPage implements OnInit {
     this.socialSharing.shareViaTwitter(this.message, this.display, null).then(() => {
 
     })
+    .catch(e => {
+      this.errorToast("Please download Twitter first and login")
+    })
+  }
+
+  async errorToast(error) {
+    const toast = await this.toastController.create({
+      message: error,
+      duration: 2000
+    });
+    toast.present();
   }
 
   pickImage(sourceType) {
@@ -39,7 +51,7 @@ export class TwitterPage implements OnInit {
     this.camera.getPicture(options).then((imageData) => {
       this.display = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
-      // Handle error
+      this.errorToast("Could not fetch image")
     });
   }
 
