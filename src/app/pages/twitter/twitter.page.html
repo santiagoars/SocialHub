@@ -9,6 +9,9 @@
     <ion-grid>
       <ion-row>
         <ion-col>
+          <ion-fab *ngIf="display" horizontal="end">
+            <ion-fab-button (click)="deleteImage()" id="delete-button"><ion-icon name="close-outline"></ion-icon></ion-fab-button>
+          </ion-fab>
           <div id="image-fit">
           <img class="add-image" *ngIf="display; else cuadro" [src]="display" (click)="selectImage()">
           <ng-template #cuadro>

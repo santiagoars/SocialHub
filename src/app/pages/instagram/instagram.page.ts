@@ -70,4 +70,8 @@ export class InstagramPage {
     await actionSheet.present();
   }
 
+  deleteImage(){
+    this.display = null;
+  }
+
 }

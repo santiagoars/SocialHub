@@ -12,7 +12,6 @@ import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 })
 export class FacebookPage implements OnInit {
 
-  image: any;
   display: any;
   message: string;
 
@@ -32,7 +31,7 @@ export class FacebookPage implements OnInit {
   }
 
   postToFacebook(){
-    this.socialSharing.shareViaFacebookWithPasteMessageHint(this.message, this.image, null).then(() => {
+    this.socialSharing.shareViaFacebookWithPasteMessageHint(this.message, this.display, null).then(() => {
 
     })
     .catch(e => {
@@ -43,14 +42,13 @@ export class FacebookPage implements OnInit {
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       saveToPhotoAlbum: false,
       correctOrientation: true,
       sourceType: sourceType
     }
     this.camera.getPicture(options).then((imageData) => {
-      this.image = imageData;
-      this.display = (<any>window).Ionic.WebView.convertFileSrc(imageData);
+      this.display = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       // Handle error
     });
@@ -80,6 +78,10 @@ export class FacebookPage implements OnInit {
       ]
     });
     await actionSheet.present();
+  }
+
+  deleteImage(){
+    this.display = null;
   }
 
 }

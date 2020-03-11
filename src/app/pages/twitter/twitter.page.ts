@@ -12,7 +12,6 @@ import {SocialSharing} from '@ionic-native/social-sharing/ngx';
 export class TwitterPage implements OnInit {
 
   message: string;
-  image: any;
   display: any;
 
   constructor(private socialSharing: SocialSharing,
@@ -24,7 +23,7 @@ export class TwitterPage implements OnInit {
   }
 
   shareOnTwitter(){
-    this.socialSharing.shareViaTwitter(this.message, this.image, null).then(() => {
+    this.socialSharing.shareViaTwitter(this.message, this.display, null).then(() => {
 
     })
   }
@@ -32,14 +31,13 @@ export class TwitterPage implements OnInit {
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
       saveToPhotoAlbum: false,
       correctOrientation: true,
       sourceType: sourceType
     }
     this.camera.getPicture(options).then((imageData) => {
-      this.image = imageData;
-      this.display = (<any>window).Ionic.WebView.convertFileSrc(imageData);
+      this.display = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       // Handle error
     });
@@ -69,6 +67,10 @@ export class TwitterPage implements OnInit {
       ]
     });
     await actionSheet.present();
+  }
+
+  deleteImage(){
+    this.display = null;
   }
 
 
