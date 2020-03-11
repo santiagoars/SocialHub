@@ -23,11 +23,7 @@ export class InstagramPage {
     this.ig.share(this.display, this.message)
    .then(() => console.log('Shared!'))
    .catch((error: any) => {
-     if(this.display === null){
-       this.errorToast("Upload an image first!");
-     }else{
-      this.errorToast(error);
-     }
+     this.errorToast("Please upload an image first!")
    });
   }
 
