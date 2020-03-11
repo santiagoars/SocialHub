@@ -10,12 +10,11 @@ import { Camera } from '@ionic-native/Camera/ngx';
 import {NativePageTransitions} from '@ionic-native/native-page-transitions/ngx';
 import {SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { Instagram } from '@ionic-native/instagram/ngx';
-import {SuperTabsModule} from '@ionic-super-tabs/angular';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SuperTabsModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
