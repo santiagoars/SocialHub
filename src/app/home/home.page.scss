@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap');
 
 #container {
   text-align: center;
@@ -41,9 +41,10 @@
 
 //Estilos de los botones
 
-#facebook-btn{
+#main-btn{
   --color: #fff;
   --background: transparent;
+  -height: 170px;
   text-transform:none!important;
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
@@ -51,11 +52,18 @@
   border-radius: 10px;
 }
 
+.logo-header{
+  animation-duration: 2s;
+}
+
 
 .btn-text{
-  padding-left: 12px;
   text-align: left;
-  font-weight: 600;
+  font-weight: 500;
+}
+
+.btn-animation{
+  animation-duration: 1.2s;
 }
 
 .outer {

@@ -6,13 +6,15 @@
         <ion-grid>
           <ion-row>
             <ion-col class="logo-text">
-              <img class="logo" src="../../assets/images/logo.png">
-              <span id="logo-txt">SocialHub</span>
+              <div class="logo-header animated fadeIn">
+                <img class="logo" src="../../assets/images/logo.png">
+                <span id="logo-txt">SocialHub</span>
+              </div>
             </ion-col>
           </ion-row>
           <ion-row>
-            <ion-col size="12">
-              <ion-button id="facebook-btn" (click)="goToApp()" expand="block"><span class="btn-text">Get started!</span></ion-button>
+            <ion-col size="12" class="btn-animation animated zoomInUp delay-1s">
+              <ion-button id="main-btn" size="large" (click)="goToApp()" expand="block"><span class="btn-text">Get started!</span></ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>

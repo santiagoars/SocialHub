@@ -13,7 +13,7 @@
             <ion-fab-button (click)="deleteImage()" id="delete-button"><ion-icon name="close-outline"></ion-icon></ion-fab-button>
           </ion-fab>
           <div id="image-fit">
-          <img class="add-image" *ngIf="display; else cuadro" [src]="display" (click)="selectImage()">
+          <img class="add-image animated rollIn" *ngIf="display; else cuadro" [src]="display" (click)="selectImage()">
           <ng-template #cuadro>
             <img class="add-image" src="../../assets/images/cuadro.png" alt="add" (click)="selectImage()">
           </ng-template>
